@@ -32,16 +32,18 @@ sub task_purge {
     my $now    = epoch2ts(undef,time());
     my $epoch  = time() - (60 * 60 * 24 * $n);
     my $date   = epoch2ts(undef,$epoch);
-    print STDERR "Purging activity log entries older than $n days (now = $now; date = $date)\n";
+    my $total_changes = 0;
+#    print STDERR "Purging activity log entries older than $n days (now = $now; date = $date)\n";
 
     my $iter = MT->model('log')->load_iter( { created_on => [ undef, $date ] },
                                             { range => { created_on => 1 } } );
 
     while ( my $log = $iter->() ) {
-        print STDERR "Removing log entry with created on date of: ".$log->created_on." (less than ".$date."?)\n";
-        #$log->remove();
+#        print STDERR "Removing log entry with created on date of: ".$log->created_on." (less than ".$date."?)\n";
+        $log->remove();
+        $total_changed++;
     }
-#    $total_changed > 0 ? 1 : 0;
+    $total_changed > 0 ? 1 : 0;
 }
 
 1;
