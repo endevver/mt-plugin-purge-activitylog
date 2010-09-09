@@ -21,6 +21,10 @@ To install this plugin follow the instructions found here:
 
 http://tinyurl.com/easy-plugin-install
 
+**Prerequisites**
+
+This plugin requires the Config Assistant framework.
+
 ## Usage ##
 
 To specify the number of days you would like to keep activity log
