@@ -1,7 +1,7 @@
 id: PurgeActivityLog
 name: 'PurgeActivityLog'
 description: 'Once a day this plugin will wake up and delete any activity log entries older than the specified time period. This will help your activity log from getting too large and consuming too much valuable space.'
-version: 0.3
+version: 0.4
 
 options:
   purge_n_days:
